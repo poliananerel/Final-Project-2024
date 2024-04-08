@@ -68,32 +68,26 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  let forecastHtml = "";
+let forecastHtml = "";
 
-  response.data.daily.forEach(function (day, index) {
-    if (index < 5) {
-      forecastHtml =
-        forecastHtml +
-        `
-      <div class="forecast-day">
-        <div class="forecast-date">${formatDay(day.time)}</div>
+response.data.daily.forEach(function (day, index) {
+if (index < 6) {
+forecastHtml = forecastHtml + `
+<div class="forecast-day">
+<div class="forecast-date">${formatDay(day.time)}</div>
+<img src="${day.condition.icon_url}" class="forecast-icon" />
+<div class="forecast-temperatures">
+<div class="forecast-max">
+<strong>${Math.round(day.temperature.maximum)}º</strong> 
+</div> 
+<div class="forecast-min">${Math.round(day.temperature.minimum)}º</div>
+</div>
+</div> `;
+}
+});
 
-        <img src="${day.condition.icon_url}" class="forecast-icon" />
-        <div class="forecast-temperatures">
-          <div class="forecast-max">
-            <strong>${Math.round(day.temperature.maximum)}º</strong>
-          </div>
-          <div class="forecast-min">${Math.round(
-            day.temperature.minimum
-          )}º</div>
-        </div>
-      </div>
-    `;
-    }
-  });
-
-  let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = forecastHtml;
+let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML = forecastHtml;
 }
 
 let searchFormElement = document.querySelector("#search-form");

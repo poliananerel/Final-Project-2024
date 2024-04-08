@@ -94,15 +94,20 @@ margin-left: 50px;
 .week-forecast {
 display: flex;
 justify-content: space-around;
-margin-top: 50px;
+margin-top: 40px;
 font-weight: 200;
 }
 
 .forecast-date {
 text-align: center;
 font-size: 14px;
-line-height: 5px;
 margin-bottom: 5px;
+border: solid #e3e1e1;
+border-radius: 15px;
+}
+
+.forecast-date:hover {
+background-color: rgba(184, 187, 187, 0.807);
 }
 
 .forecast-icon {
@@ -112,8 +117,8 @@ margin: 0 auto;
 }
 
 .forecast-temperatures {
-text-align: center;
 color: #2a292a;
+font-size: 12px;
 margin-top: 5px;
 display: flex;
 justify-content: center;
@@ -133,5 +138,5 @@ footer {
     text-align: left;
     font-size: 13px;
     font-weight: 200;
-    margin-top: 50px;
+    margin-top: 40px;
 }
